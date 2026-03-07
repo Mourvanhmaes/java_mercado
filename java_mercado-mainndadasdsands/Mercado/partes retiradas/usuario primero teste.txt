@@ -1,0 +1,101 @@
+package org.example;
+
+import java.util.PrimitiveIterator;
+
+public class Usuario {
+    private int ID;
+    private String nome;
+    private String login;
+    private String cpf;
+    private int senha;
+    private int acesso;
+    private static int aux_id = 0;
+
+    public Usuario(String nome, String login, String cpf, int senha, int acesso) {
+        aux_id++;
+        this.ID = aux_id;
+        this.nome = nome;
+        this.login = login;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.acesso = acesso;
+    }
+
+    //getters
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public int getSenha() {
+        return senha;
+    }
+
+    public int getAcesso() {
+        return acesso;
+    }
+
+    //setters
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setSenha(int senha) {
+        this.senha = senha;
+    }
+
+    public void setAcesso(int acesso) {
+        this.acesso = acesso;
+    }
+
+    //funções
+    public String FuncionarioAcesso(){
+        switch (this.acesso){
+            case 1:
+                return "Administrador";
+
+            case 2:
+                return "Supervisor";
+
+            case 3:
+                return "Operador";
+
+            default:
+                return "Acesso não reconhecido!!!";
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "ID=" + ID +
+                ", nome='" + nome + '\'' +
+                ", login='" + login + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", senha=" + senha +
+                ", acesso=" + FuncionarioAcesso() +
+                '}';
+    }
+}
